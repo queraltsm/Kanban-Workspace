@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<title>Manual Reactive Application</title>
+<header>
+  <h1>Task Manager</h1>
+  <p>This task manager is a fully client-side reactive HTML page with no server communication.</p>
+</header>
+<main>
+  <h2>Available Tasks</h2>
+  <ul id="list"></ul>
+  <form id="form">
+    <input type="text" name="title" placeholder="New task" autofocus autocomplete="off">
+    <input type="submit" value="Add">
+  </form>
+  <div id="preview_list" style="display: none;">
+    <h3>Task preview:</h3>
+    <p id="preview"></p>
+  </div>
+</main>
+<script>
+  
+  var tasks = [];
+  var list = document.querySelector("#list");
+  var preview = document.querySelector("#preview");
+  var inputTitle = document.querySelector("[name='title']");
+
+  const update = () => {
+    list.innerHTML = tasks.map(({ title }) => `<li>${title}</li>`).join("");
+    document.querySelector('#preview_list').style.display = "none";
+  };
+
+  inputTitle.addEventListener("input", () => {
+    preview.textContent = inputTitle.value;
+    if (inputTitle.value.trim() !== "") {
+      document.querySelector('#preview_list').style.display = "block";
+    } else {
+      document.querySelector('#preview_list').style.display = "none";
+    }
+  });
+
+  var form = document.querySelector("#form");
+  form.addEventListener("submit", (ev) => {
+    ev.preventDefault();
+    if (inputTitle.value.trim() !== "") {
+      tasks.push({ title: inputTitle.value });
+      inputTitle.value = "";
+      preview.textContent = "";
+      update();
+    }
+  });
+
+  update();
+</script>
