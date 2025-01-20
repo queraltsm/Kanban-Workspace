@@ -1,0 +1,111 @@
+html, body {
+  padding: 0;
+  margin: 0;
+}
+#root {
+  min-width: 100vw;
+  min-height: 100vh;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+.board {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 1em;
+  align-items: stretch;
+}
+
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+
+  /* color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424; */
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+.list {
+  width: 20rem;
+  min-width: min(20rem, 100vw);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #707a7c;
+  border-radius: 10px;
+  padding: 1rem;
+}
+.list h2 {
+  margin: 0 0 .5rem;
+  padding-bottom: .5rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border-bottom: 1px solid #acbdc0;
+}
+ul {
+  padding: 0;
+  margin: 0 0 .5rem 0;
+  flex-grow: 1;
+}
+ul>li {
+  list-style-type: none;
+  padding: .5rem 0;
+  display: flex;
+}
+ul>li>input[type="text"] {
+  flex-grow: 1;
+  transition: all .1s ease;
+  border-style: groove;
+}
+ul>li>input[type="text"]:not(:hover):not(:focus) {
+  background: transparent;
+  border-color: transparent;
+  text-overflow: ellipsis;
+}
+ul>li:not(:last-child) {
+  border-bottom: 1px solid #acbdc0;
+}
+ul>li>button {
+  margin: 0  0 0 .5rem;
+  border-radius: 5rem;
+}
+button {
+  border: 1px solid;
+  padding: 0rem .4rem;
+  border-radius: .2rem;
+  transition: all .1s ease;
+}
+button:hover, button:focus {
+  filter: brightness(120%);
+}
+
+form fieldset {
+  background-color: #aaaaaa20;
+  color-scheme: light;
+}
+form legend {
+  font-weight: bold;
+  margin: 0 auto;
+}
+form label {
+  display: block;
+  font-size: 95%;
+  margin-top: 1rem;
+}
+form input, form textarea {
+  border-style: solid;
+  padding: .5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+form .error {
+  color: rgb(221, 146, 102);
+  margin-top: 0.2rem;
+}

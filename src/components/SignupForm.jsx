@@ -1,26 +1,6 @@
 import React, { useState } from "react";
-
-const Field = ({
-  id,
-  children,
-  invalid = false,
-  error = "",
-  onValueChange = () => {},
-  ...props
-}) => {
-  return (
-    <div className="field">
-      <label htmlFor={id}>{children}</label>
-      <input
-        {...props}
-        name={id}
-        id={id}
-        onChange={(e) => onValueChange(e.target.value)}
-      />
-      {invalid && <p className="error">{error}</p>}
-    </div>
-  );
-};
+import { Field } from "./Utils";
+import { Button } from "./Utils";
 
 export const SignupForm = ({ closeForm }) => {
   const [user, setUser] = useState("");
@@ -146,3 +126,5 @@ export const SignupForm = ({ closeForm }) => {
     </>
   );
 };
+
+export default SignupForm
